@@ -13,6 +13,10 @@
 		EC298597227A1D0F007ECECD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC298595227A1D0F007ECECD /* Main.storyboard */; };
 		EC2985A3227A1D0F007ECECD /* YJGameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985A2227A1D0F007ECECD /* YJGameEngineTests.swift */; };
 		EC2985AE227A1D0F007ECECD /* YJGameEngineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985AD227A1D0F007ECECD /* YJGameEngineUITests.swift */; };
+		EC2985C7227A6044007ECECD /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985C6227A6044007ECECD /* NewProjectViewController.swift */; };
+		EC2985C9227A6423007ECECD /* NewProjectWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2985C8227A6423007ECECD /* NewProjectWindow.storyboard */; };
+		EC2985D1227A73FB007ECECD /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985D0227A73FB007ECECD /* AlertManager.swift */; };
+		EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985D2227AAC66007ECECD /* ProjectManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		EC2985A9227A1D0F007ECECD /* YJGameEngineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJGameEngineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2985AD227A1D0F007ECECD /* YJGameEngineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJGameEngineUITests.swift; sourceTree = "<group>"; };
 		EC2985AF227A1D0F007ECECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC2985C6227A6044007ECECD /* NewProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
+		EC2985C8227A6423007ECECD /* NewProjectWindow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProjectWindow.storyboard; sourceTree = "<group>"; };
+		EC2985D0227A73FB007ECECD /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = EngineTool/AlertManager.swift; sourceTree = "<group>"; };
+		EC2985D2227AAC66007ECECD /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,12 +104,15 @@
 		EC29858E227A1D0E007ECECD /* YJGameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				EC2985CF227A73E4007ECECD /* EngineTool */,
+				EC2985BB227A223F007ECECD /* ProjectUI */,
 				EC29858F227A1D0E007ECECD /* AppDelegate.swift */,
 				EC298591227A1D0E007ECECD /* ViewController.swift */,
 				EC298593227A1D0F007ECECD /* Assets.xcassets */,
 				EC298595227A1D0F007ECECD /* Main.storyboard */,
 				EC298598227A1D0F007ECECD /* Info.plist */,
 				EC298599227A1D0F007ECECD /* YJGameEngine.entitlements */,
+				EC2985D2227AAC66007ECECD /* ProjectManager.swift */,
 			);
 			path = YJGameEngine;
 			sourceTree = "<group>";
@@ -122,6 +133,23 @@
 				EC2985AF227A1D0F007ECECD /* Info.plist */,
 			);
 			path = YJGameEngineUITests;
+			sourceTree = "<group>";
+		};
+		EC2985BB227A223F007ECECD /* ProjectUI */ = {
+			isa = PBXGroup;
+			children = (
+				EC2985C6227A6044007ECECD /* NewProjectViewController.swift */,
+				EC2985C8227A6423007ECECD /* NewProjectWindow.storyboard */,
+			);
+			path = ProjectUI;
+			sourceTree = "<group>";
+		};
+		EC2985CF227A73E4007ECECD /* EngineTool */ = {
+			isa = PBXGroup;
+			children = (
+				EC2985D0227A73FB007ECECD /* AlertManager.swift */,
+			);
+			name = EngineTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +258,7 @@
 			files = (
 				EC298594227A1D0F007ECECD /* Assets.xcassets in Resources */,
 				EC298597227A1D0F007ECECD /* Main.storyboard in Resources */,
+				EC2985C9227A6423007ECECD /* NewProjectWindow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2985D1227A73FB007ECECD /* AlertManager.swift in Sources */,
 				EC298592227A1D0E007ECECD /* ViewController.swift in Sources */,
+				EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */,
+				EC2985C7227A6044007ECECD /* NewProjectViewController.swift in Sources */,
 				EC298590227A1D0E007ECECD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,6 +21,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // Insert code here to tear down your application
   }
 
-
+  @IBAction func clickNewProject(_ sender: Any) {
+    let storyboard = NSStoryboard(name: "NewProjectWindow", bundle: nil)
+    let identifier = NSStoryboard.SceneIdentifier("NewProjectViewController")
+    let vc = storyboard.instantiateController(withIdentifier: identifier) as! NewProjectViewController
+    NSLog("%@", vc)
+    if let window = NSApplication.shared.mainWindow {
+      window.contentViewController?.presentAsModalWindow(vc)
+    }
+  }
+  
+  @IBAction func clickOpenProject(_ sender: Any) {
+  }
 }
 

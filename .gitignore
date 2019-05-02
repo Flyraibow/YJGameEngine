@@ -48,6 +48,10 @@ playground.xcworkspace
 #
 # Pods/
 
+## MAC Folder
+.DS_Store
+*.DS_Store
+
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
