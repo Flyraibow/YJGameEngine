@@ -13,11 +13,32 @@ class ProjectManager: NSObject {
    */
   static let shared = ProjectManager();
   
+  private var _schemaFolderPath : String = "";
+  private var _dataFolderPath : String = "";
+  
   func createProject(path: String) throws -> Void {
-    try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: false, attributes: nil)
+    try createDirectory(path: path)
     
-    // TODO: Initialize folder
-    // 1. Add config.json
-    // 2. Create Folders (Data, Data/Schema)
+    // Create Schema Folder
+    let schemaFolderPath = String(format: "%@/schema", path);
+    try createDirectory(path: schemaFolderPath)
+    
+    // Create Data Folder
+    let dataFolderPath = String(format: "%@/data", path);
+    try createDirectory(path: dataFolderPath)
+    
+    // Create config.json
+    let configPath = String(format: "%@/config.json", path);
+    let configJsonObject: [String: Any] = [
+      "project_name": (path as NSString).lastPathComponent,
+    ]
+    try writeJSONFile(path: configPath, content: configJsonObject);
+    
+    try openProject(path: path);
+    NSLog("Complete");
+  }
+  
+  func openProject(path: String) throws -> Void {
+    
   }
 }

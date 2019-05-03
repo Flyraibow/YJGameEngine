@@ -44,9 +44,10 @@ class NewProjectViewController: NSViewController {
       errorAlert(title: "Error", text: String(format: "The folder path (%@) doesn't exist", _txtProjectPath.stringValue));
       return
     }
-    let projectPath = String(format: "%@/%@", _txtProjectPath.stringValue, _txtProjectName);
+    let projectPath = String(format: "%@/%@", _txtProjectPath.stringValue, _txtProjectName.stringValue);
     if FileManager.default.fileExists(atPath: projectPath) {
       errorAlert(title: "Error", text: String(format: "The folder path (%@) is not empty", projectPath));
+      return
     }
     
     do {

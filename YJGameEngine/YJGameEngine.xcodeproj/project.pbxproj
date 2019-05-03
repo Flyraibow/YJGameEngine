@@ -17,6 +17,8 @@
 		EC2985C9227A6423007ECECD /* NewProjectWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2985C8227A6423007ECECD /* NewProjectWindow.storyboard */; };
 		EC2985D1227A73FB007ECECD /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985D0227A73FB007ECECD /* AlertManager.swift */; };
 		EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985D2227AAC66007ECECD /* ProjectManager.swift */; };
+		EC42FD08227C0CDE00AB72D9 /* MyEffor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD07227C0CDE00AB72D9 /* MyEffor.swift */; };
+		EC42FD0A227C0D0500AB72D9 /* EngineFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD09227C0D0500AB72D9 /* EngineFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		EC2985C8227A6423007ECECD /* NewProjectWindow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProjectWindow.storyboard; sourceTree = "<group>"; };
 		EC2985D0227A73FB007ECECD /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = EngineTool/AlertManager.swift; sourceTree = "<group>"; };
 		EC2985D2227AAC66007ECECD /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
+		EC42FD07227C0CDE00AB72D9 /* MyEffor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyEffor.swift; path = EngineTool/MyEffor.swift; sourceTree = "<group>"; };
+		EC42FD09227C0D0500AB72D9 /* EngineFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EngineFileManager.swift; path = EngineTool/EngineFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +151,9 @@
 		EC2985CF227A73E4007ECECD /* EngineTool */ = {
 			isa = PBXGroup;
 			children = (
+				EC42FD09227C0D0500AB72D9 /* EngineFileManager.swift */,
 				EC2985D0227A73FB007ECECD /* AlertManager.swift */,
+				EC42FD07227C0CDE00AB72D9 /* MyEffor.swift */,
 			);
 			name = EngineTool;
 			sourceTree = "<group>";
@@ -286,7 +292,9 @@
 				EC2985D1227A73FB007ECECD /* AlertManager.swift in Sources */,
 				EC298592227A1D0E007ECECD /* ViewController.swift in Sources */,
 				EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */,
+				EC42FD08227C0CDE00AB72D9 /* MyEffor.swift in Sources */,
 				EC2985C7227A6044007ECECD /* NewProjectViewController.swift in Sources */,
+				EC42FD0A227C0D0500AB72D9 /* EngineFileManager.swift in Sources */,
 				EC298590227A1D0E007ECECD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
