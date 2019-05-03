@@ -13,8 +13,7 @@ class ProjectManager: NSObject {
    */
   static let shared = ProjectManager();
   
-  private var _schemaFolderPath : String = "";
-  private var _dataFolderPath : String = "";
+  private var _projectFolerPath : String?;
   
   func createProject(path: String) throws -> Void {
     try createDirectory(path: path)
@@ -33,12 +32,19 @@ class ProjectManager: NSObject {
       "project_name": (path as NSString).lastPathComponent,
     ]
     try writeJSONFile(path: configPath, content: configJsonObject);
+    NSLog("Complete Create Project: %@", (path as NSString).lastPathComponent);
     
     try openProject(path: path);
-    NSLog("Complete");
   }
   
   func openProject(path: String) throws -> Void {
+    let configPath = String(format: "%@/config.json", path);
+    if (FileManager.default.fileExists(atPath: configPath)) {
+      _projectFolerPath = path;
+    } else {
+      throw NSError(domain: "Failed Open Project, config.json not exist", code: ErrorCodeFailedOpenProject, userInfo: nil);
+    }
     
+    NSLog("Complete Open Project: %@", (path as NSString).lastPathComponent);
   }
 }

@@ -9,4 +9,5 @@
 import Foundation
 
 let ErrorCodeInvalidJSON:Int = -10;
-let ErrorCodeEmptyFileHandle:Int = -10;
+let ErrorCodeEmptyFileHandle:Int = -11;
+let ErrorCodeFailedOpenProject:Int = -12;

@@ -25,13 +25,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let storyboard = NSStoryboard(name: "NewProjectWindow", bundle: nil)
     let identifier = NSStoryboard.SceneIdentifier("NewProjectViewController")
     let vc = storyboard.instantiateController(withIdentifier: identifier) as! NewProjectViewController
-    NSLog("%@", vc)
     if let window = NSApplication.shared.mainWindow {
       window.contentViewController?.presentAsModalWindow(vc)
     }
   }
   
   @IBAction func clickOpenProject(_ sender: Any) {
+    let projectFolder = selectFolderPath(text: "Select Your Project Path");
+    if projectFolder != nil {
+      do {
+        try ProjectManager.shared.openProject(path: projectFolder!)
+      } catch let error as NSError {
+        errorAlert(title: "Error", text: String(format: "Error: %@", error.localizedDescription));
+        return;
+      }
+    }
   }
 }
 

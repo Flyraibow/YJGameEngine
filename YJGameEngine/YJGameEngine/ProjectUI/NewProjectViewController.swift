@@ -56,5 +56,7 @@ class NewProjectViewController: NSViewController {
       errorAlert(title: "Error", text: String(format: "Error: %@", error.localizedDescription));
       return;
     }
+    
+    self.dismiss(nil);
   }
 }
