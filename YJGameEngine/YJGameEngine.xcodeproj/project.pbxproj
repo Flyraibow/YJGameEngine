@@ -19,6 +19,11 @@
 		EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985D2227AAC66007ECECD /* ProjectManager.swift */; };
 		EC42FD08227C0CDE00AB72D9 /* MyEffor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD07227C0CDE00AB72D9 /* MyEffor.swift */; };
 		EC42FD0A227C0D0500AB72D9 /* EngineFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD09227C0D0500AB72D9 /* EngineFileManager.swift */; };
+		EC42FD0C227CED4600AB72D9 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD0B227CED4600AB72D9 /* LeftSideViewController.swift */; };
+		EC42FD12227D1A4300AB72D9 /* SchemaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD11227D1A4300AB72D9 /* SchemaData.swift */; };
+		EC42FD16227E2C7500AB72D9 /* NewSchemaViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC42FD15227E2C7500AB72D9 /* NewSchemaViewController.storyboard */; };
+		EC42FD18227E2CB800AB72D9 /* NewSchemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD17227E2CB800AB72D9 /* NewSchemaViewController.swift */; };
+		EC42FD1A227E553300AB72D9 /* LeftSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD19227E553300AB72D9 /* LeftSideMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,11 @@
 		EC2985D2227AAC66007ECECD /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 		EC42FD07227C0CDE00AB72D9 /* MyEffor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyEffor.swift; path = EngineTool/MyEffor.swift; sourceTree = "<group>"; };
 		EC42FD09227C0D0500AB72D9 /* EngineFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EngineFileManager.swift; path = EngineTool/EngineFileManager.swift; sourceTree = "<group>"; };
+		EC42FD0B227CED4600AB72D9 /* LeftSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
+		EC42FD11227D1A4300AB72D9 /* SchemaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchemaData.swift; path = Data/SchemaData.swift; sourceTree = "<group>"; };
+		EC42FD15227E2C7500AB72D9 /* NewSchemaViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewSchemaViewController.storyboard; sourceTree = "<group>"; };
+		EC42FD17227E2CB800AB72D9 /* NewSchemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSchemaViewController.swift; sourceTree = "<group>"; };
+		EC42FD19227E553300AB72D9 /* LeftSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 		EC29858E227A1D0E007ECECD /* YJGameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				EC42FD10227D1A2600AB72D9 /* Data */,
 				EC2985CF227A73E4007ECECD /* EngineTool */,
 				EC2985BB227A223F007ECECD /* ProjectUI */,
 				EC29858F227A1D0E007ECECD /* AppDelegate.swift */,
@@ -144,6 +155,10 @@
 			children = (
 				EC2985C6227A6044007ECECD /* NewProjectViewController.swift */,
 				EC2985C8227A6423007ECECD /* NewProjectWindow.storyboard */,
+				EC42FD0B227CED4600AB72D9 /* LeftSideViewController.swift */,
+				EC42FD15227E2C7500AB72D9 /* NewSchemaViewController.storyboard */,
+				EC42FD17227E2CB800AB72D9 /* NewSchemaViewController.swift */,
+				EC42FD19227E553300AB72D9 /* LeftSideMenu.swift */,
 			);
 			path = ProjectUI;
 			sourceTree = "<group>";
@@ -156,6 +171,14 @@
 				EC42FD07227C0CDE00AB72D9 /* MyEffor.swift */,
 			);
 			name = EngineTool;
+			sourceTree = "<group>";
+		};
+		EC42FD10227D1A2600AB72D9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EC42FD11227D1A4300AB72D9 /* SchemaData.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +288,7 @@
 				EC298594227A1D0F007ECECD /* Assets.xcassets in Resources */,
 				EC298597227A1D0F007ECECD /* Main.storyboard in Resources */,
 				EC2985C9227A6423007ECECD /* NewProjectWindow.storyboard in Resources */,
+				EC42FD16227E2C7500AB72D9 /* NewSchemaViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,9 +317,13 @@
 				EC298592227A1D0E007ECECD /* ViewController.swift in Sources */,
 				EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */,
 				EC42FD08227C0CDE00AB72D9 /* MyEffor.swift in Sources */,
+				EC42FD1A227E553300AB72D9 /* LeftSideMenu.swift in Sources */,
 				EC2985C7227A6044007ECECD /* NewProjectViewController.swift in Sources */,
 				EC42FD0A227C0D0500AB72D9 /* EngineFileManager.swift in Sources */,
+				EC42FD0C227CED4600AB72D9 /* LeftSideViewController.swift in Sources */,
 				EC298590227A1D0E007ECECD /* AppDelegate.swift in Sources */,
+				EC42FD18227E2CB800AB72D9 /* NewSchemaViewController.swift in Sources */,
+				EC42FD12227D1A4300AB72D9 /* SchemaData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

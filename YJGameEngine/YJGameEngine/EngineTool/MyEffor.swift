@@ -8,6 +8,12 @@
 
 import Foundation
 
+let ErrorCodeNeedOpenProjectFirst: Int = -1;
 let ErrorCodeInvalidJSON:Int = -10;
 let ErrorCodeEmptyFileHandle:Int = -11;
 let ErrorCodeFailedOpenProject:Int = -12;
+
+let ErrorCodeInvalidFileName: Int = -20;
+
+
+let ErrorSchemaNotExist:Int = 30;

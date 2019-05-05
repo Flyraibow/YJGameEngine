@@ -10,9 +10,6 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
   }
@@ -39,6 +36,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         errorAlert(title: "Error", text: String(format: "Error: %@", error.localizedDescription));
         return;
       }
+    }
+  }
+  
+  @IBAction func clickAddSchema(_ sender: Any) {
+    do {
+      try ProjectManager.shared.verifyProject();
+    } catch let error as NSError {
+      errorAlert(title: "Error", text: error.localizedDescription);
+      return;
+    }
+    let storyboard = NSStoryboard(name: "NewSchemaViewController", bundle: nil)
+    let identifier = NSStoryboard.SceneIdentifier("NewSchemaViewController")
+    let vc = storyboard.instantiateController(withIdentifier: identifier) as! NewSchemaViewController
+    if let window = NSApplication.shared.mainWindow {
+      window.contentViewController?.presentAsModalWindow(vc)
     }
   }
 }

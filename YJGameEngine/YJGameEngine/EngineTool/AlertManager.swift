@@ -35,3 +35,17 @@ func selectFolderPath(text: String) -> String? {
   }
   return nil;
 }
+
+func selectionAlert(title: String, text: String) -> Bool {
+  let alert: NSAlert = NSAlert()
+  alert.messageText = title
+  alert.informativeText = text
+  alert.alertStyle = NSAlert.Style.warning
+  alert.addButton(withTitle: "YES")
+  alert.addButton(withTitle: "Cancel")
+  let res = alert.runModal()
+  if res == NSApplication.ModalResponse.alertFirstButtonReturn {
+    return true
+  }
+  return false
+}
