@@ -70,7 +70,7 @@ class ProjectManager: NSObject {
     return String(format: "%@/%@/%@", _projectFolerPath!, SCHEMA, name);
   }
   
-  func addSchema(name: String, type: Int, description: String) throws -> Void {
+  func addSchema(name: String, type: SchemaDataType, description: String) throws -> Void {
     try verifyProject();
     let schema = try SchemaData(name: name, type: type, description: description);
     addSchema(schema: schema);
@@ -89,6 +89,10 @@ class ProjectManager: NSObject {
     } else {
       throw NSError(domain: String(format: "schema %@ not exist", schemaName), code: ErrorSchemaNotExist, userInfo: nil);
     }
+  }
+  
+  func getSchema(schemaName : String) -> SchemaData? {
+    return _schemaMap[schemaName];
   }
   
   func getAllSchemas() -> [SchemaData] {

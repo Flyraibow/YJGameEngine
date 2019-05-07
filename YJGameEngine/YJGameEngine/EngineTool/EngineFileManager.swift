@@ -41,6 +41,7 @@ func listFilesInFolder(folderPath: String, ext: String?) throws -> [URL] {
 }
 
 func writeJSONFile(path: String, content: Any) throws -> Void {
+  print(content);
   if !JSONSerialization.isValidJSONObject(content) {
     throw NSError(domain: "Invalid JSON content", code: ErrorCodeInvalidJSON, userInfo: nil);
   }

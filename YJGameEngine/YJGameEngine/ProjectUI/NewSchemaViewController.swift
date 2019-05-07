@@ -24,11 +24,11 @@ class NewSchemaViewController: NSViewController {
       errorAlert(title: "Error", text: String(format: "Error: %@", error.localizedDescription));
       return;
     }
-    let tag = _selectSchemaType.selectedTag();
+    let schemaType = SchemaDataType(rawValue: _selectSchemaType.selectedTag()) ?? SchemaDataType.SchemaDataType_KeyValue;
     let description = _txtDescription.stringValue;
     
     do {
-      try ProjectManager.shared.addSchema(name: _txtSchemaName.stringValue, type: tag, description: description);
+      try ProjectManager.shared.addSchema(name: _txtSchemaName.stringValue, type: schemaType, description: description);
     } catch let error as NSError {
       errorAlert(title: "Error", text: String(format: "Failed add schema: %@", error.localizedDescription));
       return;

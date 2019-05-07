@@ -9,31 +9,52 @@
 import Cocoa
 
 enum DefinedCategory {
-  case top
+  case topSchema
+  case topType
   case schema
   case type
+  case schemaField
+  case schemaData
+  case schemaFieldDetail
   case undefined
 }
 
 let TopDefinedCategoryTypes : [DefinedCategory : String] = [
-  DefinedCategory.schema : "Schema",
-  DefinedCategory.type : "type",
+  DefinedCategory.topSchema : "Schema",
+  DefinedCategory.topType : "type",
+  DefinedCategory.schemaField : "Fields",
+  DefinedCategory.schemaData : "Data",
   DefinedCategory.undefined : "undefined"
 ]
 
 let TopDefinedCategory = [
-  Cell(name: TopDefinedCategoryTypes[DefinedCategory.schema]),
-  Cell(name: TopDefinedCategoryTypes[DefinedCategory.type]),
+  Cell(name: TopDefinedCategoryTypes[DefinedCategory.topSchema], type: DefinedCategory.topSchema),
+  Cell(name: TopDefinedCategoryTypes[DefinedCategory.topType], type: DefinedCategory.topType),
 ]
 
 
 class Cell: NSObject {
   let name: String
   let type: DefinedCategory
+  let children : [Cell]
+  var parentCell: Cell?
   
-  init(name: String?, type: DefinedCategory = DefinedCategory.top) {
+  init(name: String?, type: DefinedCategory, parentCell:Cell? = nil) {
     self.name = name ?? "undefined"
     self.type = type
+    if type == DefinedCategory.schema {
+      self.children = [
+        Cell(name: TopDefinedCategoryTypes[DefinedCategory.schemaField], type: DefinedCategory.schemaField),
+        Cell(name: TopDefinedCategoryTypes[DefinedCategory.schemaData], type: DefinedCategory.schemaData),
+      ]
+    } else {
+      self.children = [];
+    }
+    self.parentCell = parentCell;
+    super.init();
+    for child in self.children {
+      child.parentCell = self;
+    }
   }
 }
 
@@ -62,8 +83,13 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
       return TopDefinedCategory.count;
     } else {
       if let feed = item as? Cell {
-        if feed.name == "Schema" {
+        if feed.type == DefinedCategory.topSchema {
           return ProjectManager.shared.getAllSchemas().count;
+        } else if feed.type == DefinedCategory.schemaField {
+          let schema = ProjectManager.shared.getSchema(schemaName: feed.parentCell!.name);
+          return schema?.fieldMap.count ?? 0
+        } else {
+          return feed.children.count;
         }
       }
     }
@@ -76,9 +102,17 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
       return TopDefinedCategory[index];
     } else {
       if let feed = item as? Cell {
-        if feed.name == "Schema" {
+        if feed.type == DefinedCategory.topSchema {
           let schemaList = ProjectManager.shared.getAllSchemas();
-          return Cell(name: schemaList[index].name, type: DefinedCategory.schema);
+          return Cell(name: schemaList[index].name, type: DefinedCategory.schema, parentCell: feed);
+        } else if feed.type == DefinedCategory.schemaField {
+          let schema = ProjectManager.shared.getSchema(schemaName: feed.parentCell!.name);
+          if schema != nil {
+            let fields = schema!.getAllFields();
+            return Cell(name: fields[index].fieldName, type: DefinedCategory.schemaFieldDetail, parentCell: feed);
+          }
+        } else {
+          return feed.children[index];
         }
       }
     }
@@ -88,8 +122,13 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
   func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool
   {
     let cell = item as? Cell
-    if cell != nil && cell?.type == DefinedCategory.top {
-      return true;
+    if cell != nil {
+      if cell!.type == DefinedCategory.topSchema ||
+        cell!.type == DefinedCategory.topType ||
+        cell!.type == DefinedCategory.schemaField
+        || cell!.children.count > 0 {
+        return true;
+      }
     }
     return false;
   }
@@ -107,7 +146,7 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
   
   func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
     let cell : Cell? = menuItem.representedObject as? Cell;
-    if cell != nil && cell!.type == DefinedCategory.schema {
+    if cell != nil && (cell!.type == DefinedCategory.schema || cell!.type == DefinedCategory.schemaFieldDetail) {
       return true;
     }
     return false;
@@ -125,14 +164,27 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
   
   @IBAction func clickDelete(_ menuItem: NSMenuItem) {
     let cell : Cell? = menuItem.representedObject as? Cell;
-    if cell != nil && cell!.type == DefinedCategory.schema {
-      if (selectionAlert(title: "Warning", text: String(format: "Are you sure to delete this schema : %@", cell!.name))) {
-        // delete the schema
-        do {
-          try ProjectManager.shared.deleteSchema(schemaName: cell!.name)
-        } catch let error as NSError {
-          errorAlert(title: "Error", text: String(format: "Failed delete schema: %@", error.localizedDescription));
-          return;
+    if cell != nil {
+      if cell!.type == DefinedCategory.schema {
+        if (selectionAlert(title: "Warning", text: String(format: "Are you sure to delete this schema : %@", cell!.name))) {
+          // delete the schema
+          do {
+            try ProjectManager.shared.deleteSchema(schemaName: cell!.name)
+          } catch let error as NSError {
+            errorAlert(title: "Error", text: String(format: "Failed delete schema: %@", error.localizedDescription));
+            return;
+          }
+        }
+      } else if cell!.type == DefinedCategory.schemaFieldDetail {
+        let schema = ProjectManager.shared.getSchema(schemaName: cell!.parentCell!.parentCell!.name);
+        if (selectionAlert(title: "Warning", text: String(format: "Are you sure to delete this field : %@ from %@", cell!.name, schema!.name))) {
+          // delete the field
+          do {
+            try schema?.deleteField(fieldName: cell!.name);
+          } catch let error as NSError {
+            errorAlert(title: "Error", text: String(format: "Failed delete schema: %@", error.localizedDescription));
+            return;
+          }
         }
       }
     }
