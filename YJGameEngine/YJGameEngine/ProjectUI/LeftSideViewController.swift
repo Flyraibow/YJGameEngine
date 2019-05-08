@@ -73,6 +73,10 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
                                            object: nil);
   }
   
+  override func viewDidAppear() {
+    super.viewDidAppear()
+  }
+  
   @objc func dataRefresh() -> Void {
     _outlineView.reloadData();
   }
@@ -146,9 +150,25 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
   
   func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
     let cell : Cell? = menuItem.representedObject as? Cell;
-    if cell != nil && (cell!.type == DefinedCategory.schema || cell!.type == DefinedCategory.schemaFieldDetail) {
-      return true;
+    if cell != nil {
+      if menuItem.identifier?.rawValue == "addSchemaMenuItem" {
+        if (cell!.type == DefinedCategory.schema || cell!.type == DefinedCategory.topSchema ) {
+          menuItem.isHidden = false;
+          return true;
+        }
+      } else if menuItem.identifier?.rawValue == "addFieldMenuItem" {
+        if (cell!.type == DefinedCategory.schema || cell!.type == DefinedCategory.schemaField || cell!.type == DefinedCategory.schemaFieldDetail) {
+          menuItem.isHidden = false;
+          return true;
+        }
+      } else if menuItem.identifier?.rawValue == "deleteMenuItem" {
+        if (cell!.type == DefinedCategory.schema || cell!.type == DefinedCategory.schemaFieldDetail) {
+          menuItem.isHidden = false;
+          return true;
+        }
+      }
     }
+    menuItem.isHidden = true;
     return false;
   }
   
@@ -188,5 +208,20 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
         }
       }
     }
+  }
+  @IBAction func clickAddFieldButton(_ menuItem: NSMenuItem) {
+    let cell : Cell? = menuItem.representedObject as? Cell;
+    var schemaName : String = "";
+    if cell?.type == DefinedCategory.schemaFieldDetail {
+      schemaName = cell!.parentCell!.parentCell!.name;
+    } else if cell?.type == DefinedCategory.schemaField {
+      schemaName = cell!.parentCell!.name;
+    } else if cell?.type == DefinedCategory.schema {
+      schemaName = cell!.name;
+    }
+    WindowManager.openAddField(schemaName: schemaName);
+  }
+  @IBAction func clickAddSchemaButton(_ sender: Any) {
+    WindowManager.openAddSchema();
   }
 }

@@ -34,21 +34,18 @@ class SchemaData: NSObject {
     }
     return schemaList;
   }
-  static func saveSchema(path: String, type: SchemaDataType, description: String, fieldMap : [String : SchemaField]) throws -> Void {
-    let fieldList = fieldMap.map { (_, value) -> [String: Any] in
+  
+  func save() throws -> Void {
+    let fieldList = self.fieldMap.map { (_, value) -> [String: Any] in
       return value.convertToJSON();
     }
     
     let content : [String: Any] = [
-      "type" : type.rawValue,
-      "description" : description,
+      "type" : self.type.rawValue,
+      "description" : self.schemaDescription,
       "fields" : fieldList,
     ];
-    try writeJSONFile(path: path, content: content)
-  }
-  
-  static func saveSchema(schema: SchemaData) throws -> Void {
-    try saveSchema(path: schema.path, type: schema.type, description: schema.description, fieldMap: schema.fieldMap);
+    try writeJSONFile(path: self.path, content: content)
   }
   
   // load Schema From path
@@ -87,7 +84,8 @@ class SchemaData: NSObject {
       schemaFieldMap[schemaField.fieldName] = schemaField;
       self.fieldMap = schemaFieldMap;
     }
-    try SchemaData.saveSchema(path: path, type: type, description: description, fieldMap: schemaFieldMap);
+    super.init();
+    try save();
   }
   
   func delteSchema() throws -> Void {
@@ -104,6 +102,9 @@ class SchemaData: NSObject {
       throw NSError(domain: String(format: "Schema Field (:%@) already exist", field.fieldName), code: ErrorCodeSchemaFieldAlreadyExist, userInfo: nil);
     }
     self.fieldMap[field.fieldName] = field;
+    try save();
+    
+    NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: YJEngineObserverSchemaChange)));
   }
   
   func deleteField(fieldName : String) throws -> Void {
@@ -112,6 +113,9 @@ class SchemaData: NSObject {
       throw NSError(domain: "You can't remove id field for key-value data", code: ErrorCodeSchemaDeleteFieldFailed, userInfo: nil);
     }
     self.fieldMap[fieldName] = nil;
+    try save();
+    
+    NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: YJEngineObserverSchemaChange)));
   }
   
   func getAllFields() -> [SchemaField] {

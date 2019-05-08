@@ -831,7 +831,19 @@
                 <customObject id="6Nw-jv-o45" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="82A-Wn-KH8">
                     <items>
-                        <menuItem title="Delete" id="ehm-j1-VhR">
+                        <menuItem title="Add Schema" hidden="YES" identifier="addSchemaMenuItem" id="QJx-iE-k7t">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="clickAddSchemaButton:" target="270-t7-Fnm" id="EYO-l0-PmP"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Add Field" hidden="YES" identifier="addFieldMenuItem" id="5Td-gf-kYG">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="clickAddFieldButton:" target="270-t7-Fnm" id="8tD-22-4ts"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Delete" hidden="YES" identifier="deleteMenuItem" id="ehm-j1-VhR">
                             <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>

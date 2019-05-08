@@ -62,6 +62,7 @@ class ProjectManager: NSObject {
       addSchema(schema: schema);
     }
     
+    UserDefaults.standard.set(path, forKey: kLastOpenedProjectPath);
     NSLog("Complete Open Project: %@", (path as NSString).lastPathComponent);
   }
   

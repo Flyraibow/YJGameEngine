@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC298590227A1D0E007ECECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29858F227A1D0E007ECECD /* AppDelegate.swift */; };
-		EC298592227A1D0E007ECECD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC298591227A1D0E007ECECD /* ViewController.swift */; };
 		EC298594227A1D0F007ECECD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC298593227A1D0F007ECECD /* Assets.xcassets */; };
 		EC298597227A1D0F007ECECD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC298595227A1D0F007ECECD /* Main.storyboard */; };
 		EC2985A3227A1D0F007ECECD /* YJGameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2985A2227A1D0F007ECECD /* YJGameEngineTests.swift */; };
@@ -23,6 +22,9 @@
 		EC42FD12227D1A4300AB72D9 /* SchemaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD11227D1A4300AB72D9 /* SchemaData.swift */; };
 		EC42FD16227E2C7500AB72D9 /* NewSchemaViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC42FD15227E2C7500AB72D9 /* NewSchemaViewController.storyboard */; };
 		EC42FD18227E2CB800AB72D9 /* NewSchemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC42FD17227E2CB800AB72D9 /* NewSchemaViewController.swift */; };
+		EC9833B322828C0700EECA75 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833B222828C0700EECA75 /* WindowManager.swift */; };
+		EC9833B522828CE800EECA75 /* NewFieldViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */; };
+		EC9833B722828D4800EECA75 /* NewFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833B622828D4800EECA75 /* NewFieldViewController.swift */; };
 		ECE086E522813B36004704FA /* SchemaField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE086E422813B36004704FA /* SchemaField.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +48,6 @@
 /* Begin PBXFileReference section */
 		EC29858C227A1D0E007ECECD /* YJGameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJGameEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC29858F227A1D0E007ECECD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC298591227A1D0E007ECECD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EC298593227A1D0F007ECECD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC298596227A1D0F007ECECD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC298598227A1D0F007ECECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		EC42FD11227D1A4300AB72D9 /* SchemaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchemaData.swift; path = Data/SchemaData.swift; sourceTree = "<group>"; };
 		EC42FD15227E2C7500AB72D9 /* NewSchemaViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewSchemaViewController.storyboard; sourceTree = "<group>"; };
 		EC42FD17227E2CB800AB72D9 /* NewSchemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSchemaViewController.swift; sourceTree = "<group>"; };
+		EC9833B222828C0700EECA75 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewFieldViewController.storyboard; sourceTree = "<group>"; };
+		EC9833B622828D4800EECA75 /* NewFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFieldViewController.swift; sourceTree = "<group>"; };
 		ECE086E422813B36004704FA /* SchemaField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchemaField.swift; path = Data/SchemaField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +126,6 @@
 				EC2985CF227A73E4007ECECD /* EngineTool */,
 				EC2985BB227A223F007ECECD /* ProjectUI */,
 				EC29858F227A1D0E007ECECD /* AppDelegate.swift */,
-				EC298591227A1D0E007ECECD /* ViewController.swift */,
 				EC298593227A1D0F007ECECD /* Assets.xcassets */,
 				EC298595227A1D0F007ECECD /* Main.storyboard */,
 				EC298598227A1D0F007ECECD /* Info.plist */,
@@ -158,6 +161,9 @@
 				EC42FD0B227CED4600AB72D9 /* LeftSideViewController.swift */,
 				EC42FD15227E2C7500AB72D9 /* NewSchemaViewController.storyboard */,
 				EC42FD17227E2CB800AB72D9 /* NewSchemaViewController.swift */,
+				EC9833B222828C0700EECA75 /* WindowManager.swift */,
+				EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */,
+				EC9833B622828D4800EECA75 /* NewFieldViewController.swift */,
 			);
 			path = ProjectUI;
 			sourceTree = "<group>";
@@ -249,6 +255,11 @@
 				TargetAttributes = {
 					EC29858B227A1D0E007ECECD = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					EC29859D227A1D0F007ECECD = {
 						CreatedOnToolsVersion = 10.2;
@@ -287,6 +298,7 @@
 			files = (
 				EC298594227A1D0F007ECECD /* Assets.xcassets in Resources */,
 				EC298597227A1D0F007ECECD /* Main.storyboard in Resources */,
+				EC9833B522828CE800EECA75 /* NewFieldViewController.storyboard in Resources */,
 				EC2985C9227A6423007ECECD /* NewProjectWindow.storyboard in Resources */,
 				EC42FD16227E2C7500AB72D9 /* NewSchemaViewController.storyboard in Resources */,
 			);
@@ -314,16 +326,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2985D1227A73FB007ECECD /* AlertManager.swift in Sources */,
-				EC298592227A1D0E007ECECD /* ViewController.swift in Sources */,
 				EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */,
 				EC42FD08227C0CDE00AB72D9 /* MyEffor.swift in Sources */,
 				EC2985C7227A6044007ECECD /* NewProjectViewController.swift in Sources */,
+				EC9833B322828C0700EECA75 /* WindowManager.swift in Sources */,
 				EC42FD0A227C0D0500AB72D9 /* EngineFileManager.swift in Sources */,
 				EC42FD0C227CED4600AB72D9 /* LeftSideViewController.swift in Sources */,
 				EC298590227A1D0E007ECECD /* AppDelegate.swift in Sources */,
 				EC42FD18227E2CB800AB72D9 /* NewSchemaViewController.swift in Sources */,
 				EC42FD12227D1A4300AB72D9 /* SchemaData.swift in Sources */,
 				ECE086E522813B36004704FA /* SchemaField.swift in Sources */,
+				EC9833B722828D4800EECA75 /* NewFieldViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +502,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = YJGameEngine/YJGameEngine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = J6B37H3SRB;
@@ -508,7 +520,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = YJGameEngine/YJGameEngine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = J6B37H3SRB;
