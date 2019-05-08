@@ -36,6 +36,23 @@ func selectFolderPath(text: String) -> String? {
   return nil;
 }
 
+func selectMultiFiles(text: String, exts: [String]? = nil) -> [URL] {
+  
+  let dialog = NSOpenPanel();
+  dialog.title                   = text;
+  dialog.showsResizeIndicator    = true;
+  dialog.showsHiddenFiles        = false;
+  dialog.canChooseDirectories    = false;
+  dialog.canCreateDirectories    = false;
+  dialog.allowsMultipleSelection = true;
+  dialog.allowedFileTypes = exts;
+  
+  if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+    return dialog.urls
+  }
+  return [];
+}
+
 func selectionAlert(title: String, text: String) -> Bool {
   let alert: NSAlert = NSAlert()
   alert.messageText = title

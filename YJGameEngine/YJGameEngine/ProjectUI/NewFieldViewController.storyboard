@@ -138,13 +138,13 @@ Gw
                                             <menuItem title="String" state="on" identifier="keyValue" id="sV8-tn-eJk">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Int" tag="1" identifier="singleValue" id="Ooq-fQ-d4z">
+                                            <menuItem title="Int" tag="1" id="Ooq-fQ-d4z">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Float" tag="2" identifier="singleValue" id="hDe-xu-PIn">
+                                            <menuItem title="Float" tag="2" id="hDe-xu-PIn">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Bool" tag="3" identifier="singleValue" id="2sA-19-hqx">
+                                            <menuItem title="Bool" tag="3" id="2sA-19-hqx">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                         </items>

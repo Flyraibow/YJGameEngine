@@ -25,6 +25,7 @@
 		EC9833B322828C0700EECA75 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833B222828C0700EECA75 /* WindowManager.swift */; };
 		EC9833B522828CE800EECA75 /* NewFieldViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */; };
 		EC9833B722828D4800EECA75 /* NewFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833B622828D4800EECA75 /* NewFieldViewController.swift */; };
+		EC9833BB2283591A00EECA75 /* CSVDecipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833BA2283591A00EECA75 /* CSVDecipher.swift */; };
 		ECE086E522813B36004704FA /* SchemaField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE086E422813B36004704FA /* SchemaField.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		EC9833B222828C0700EECA75 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewFieldViewController.storyboard; sourceTree = "<group>"; };
 		EC9833B622828D4800EECA75 /* NewFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFieldViewController.swift; sourceTree = "<group>"; };
+		EC9833BA2283591A00EECA75 /* CSVDecipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CSVDecipher.swift; path = Decipher/CSVDecipher.swift; sourceTree = "<group>"; };
 		ECE086E422813B36004704FA /* SchemaField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchemaField.swift; path = Data/SchemaField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 		EC29858E227A1D0E007ECECD /* YJGameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				EC9833B9228358FB00EECA75 /* Decipher */,
 				EC42FD10227D1A2600AB72D9 /* Data */,
 				EC2985CF227A73E4007ECECD /* EngineTool */,
 				EC2985BB227A223F007ECECD /* ProjectUI */,
@@ -185,6 +188,14 @@
 				ECE086E422813B36004704FA /* SchemaField.swift */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		EC9833B9228358FB00EECA75 /* Decipher */ = {
+			isa = PBXGroup;
+			children = (
+				EC9833BA2283591A00EECA75 /* CSVDecipher.swift */,
+			);
+			name = Decipher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +348,7 @@
 				EC42FD12227D1A4300AB72D9 /* SchemaData.swift in Sources */,
 				ECE086E522813B36004704FA /* SchemaField.swift in Sources */,
 				EC9833B722828D4800EECA75 /* NewFieldViewController.swift in Sources */,
+				EC9833BB2283591A00EECA75 /* CSVDecipher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

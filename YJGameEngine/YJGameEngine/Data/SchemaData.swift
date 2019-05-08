@@ -8,10 +8,6 @@
 
 import Foundation
 
-let ErrorCodeSchemaAlreadyExist: Int = -100;
-let ErrorCodeSchemaNotFound: Int = -101;
-let ErrorCodeSchemaFieldAlreadyExist: Int = -103;
-let ErrorCodeSchemaDeleteFieldFailed: Int = -104;
 
 enum SchemaDataType:Int {
   case SchemaDataType_KeyValue = 0

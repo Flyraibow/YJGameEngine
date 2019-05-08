@@ -49,5 +49,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @IBAction func clickAddSchema(_ sender: Any) {
     WindowManager.openAddSchema();
   }
+  @IBAction func clickImportSchema(_ sender: Any) {
+    do {
+      try ProjectManager.shared.verifyProject();
+    } catch let error as NSError {
+      errorAlert(title: "Error", text: error.localizedDescription);
+      return;
+    }
+    let csvFiles = selectMultiFiles(text: "Please select csv files.", exts: ["csv"]);
+    
+    do {
+      for csvFileUrl in csvFiles {
+        let schema = try CSVDecipher.extractSchemaFromCSV(url: csvFileUrl);
+        if schema != nil {
+          ProjectManager.shared.addSchema(schema: schema!);
+        }
+      }
+    } catch let error as NSError {
+      errorAlert(title: "Error", text: error.localizedDescription);
+      return;
+    }
+  }
 }
 

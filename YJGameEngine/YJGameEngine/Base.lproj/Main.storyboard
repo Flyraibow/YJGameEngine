@@ -635,10 +635,16 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Project" id="uI8-ed-Qgb">
                                     <items>
-                                        <menuItem title="Add Schema" keyEquivalent="f" id="V9t-Nf-fZu" userLabel="Add Schema">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                        <menuItem title="Add Schema" id="V9t-Nf-fZu" userLabel="Add Schema">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="clickAddSchema:" target="Voe-Tx-rLC" id="Kbg-ax-IPJ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Import Schema" id="JCf-Bw-bxL" userLabel="Add Schema">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="clickImportSchema:" target="Voe-Tx-rLC" id="RT9-jD-cJl"/>
                                             </connections>
                                         </menuItem>
                                     </items>

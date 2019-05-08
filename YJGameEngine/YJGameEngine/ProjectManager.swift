@@ -115,4 +115,8 @@ class ProjectManager: NSObject {
       return schema1.name < schema2.name;
     }
   }
+  
+  func importSchemaFromCSV(path: URL) throws -> Void {
+    
+  }
 }

@@ -15,5 +15,12 @@ let ErrorCodeFailedOpenProject:Int = -12;
 
 let ErrorCodeInvalidFileName: Int = -20;
 
-
 let ErrorSchemaNotExist:Int = 30;
+
+let ErrorCodeSchemaAlreadyExist: Int = -100;
+let ErrorCodeSchemaNotFound: Int = -101;
+let ErrorCodeSchemaFieldAlreadyExist: Int = -103;
+let ErrorCodeSchemaDeleteFieldFailed: Int = -104;
+
+let ErrorWrongCSVPath : Int = -1000;
+let ErrorWrongCSVFields : Int = -1000;

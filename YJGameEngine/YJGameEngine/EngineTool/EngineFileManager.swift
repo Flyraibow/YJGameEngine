@@ -59,3 +59,55 @@ func readJSONFile(path: String) throws -> Any {
   }
   return jsonDict;
 }
+
+func readCSVFile(url: URL) throws -> [[String]] {
+  if !FileManager.default.fileExists(atPath: url.path) || url.pathExtension != "csv" {
+    throw NSError(domain: String(format: "Wrong csv path : %@", url.path), code: ErrorWrongCSVPath, userInfo: nil);
+  }
+  let content = try String(contentsOf: url);
+  let lines = content.components(separatedBy: .newlines)
+  var results : [[String]] = [];
+  for line in lines {
+    // in CSV every line is separate
+    if line.isEmpty {
+      continue;
+    }
+    var lineX = line;
+    var startIndex = lineX.startIndex;
+    var row : [String] = [];
+    var endIndex : String.Index?;
+    var containsComma = false;
+    repeat {
+      // check is it start with "
+      if lineX[startIndex] == "\"" {
+        containsComma = true;
+        startIndex = lineX.index(after: startIndex);
+        let range = lineX.range(of: "\",");
+        endIndex = range?.lowerBound;
+      } else {
+        containsComma = false;
+        endIndex = lineX.firstIndex(of: Character(","))
+      }
+      if endIndex != nil {
+        let word = String(lineX[startIndex..<endIndex!]);
+        row.append(word);
+      } else {
+        if containsComma {
+          endIndex = lineX.lastIndex(of: Character("\""));
+        } else {
+          endIndex = lineX.endIndex;
+        }
+        let word = String(lineX[startIndex..<endIndex!]);
+        row.append(word);
+        break;
+      }
+      if containsComma {
+        endIndex = lineX.index(after: endIndex!);
+      }
+      lineX = String(lineX[lineX.index(after: endIndex!)...]);
+      startIndex = lineX.startIndex;
+    } while !lineX.isEmpty
+    results.append(row);
+  }
+  return results;
+}
