@@ -852,6 +852,12 @@ CA
                                 <action selector="clickDelete:" target="270-t7-Fnm" id="Zzh-Ra-hBT"/>
                             </connections>
                         </menuItem>
+                        <menuItem title="Edit" hidden="YES" identifier="editMenuItem" id="Irx-8f-9vm">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="clickEdit:" target="270-t7-Fnm" id="tCq-5y-iNU"/>
+                            </connections>
+                        </menuItem>
                     </items>
                     <connections>
                         <outlet property="delegate" destination="270-t7-Fnm" id="J8l-8c-ZJi"/>

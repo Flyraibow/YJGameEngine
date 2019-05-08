@@ -88,11 +88,14 @@ class SchemaData: NSObject {
     try save();
   }
   
-  func delteSchema() throws -> Void {
+  func deleteSchema() throws -> Void {
     try FileManager.default.removeItem(at: URL(fileURLWithPath: self.path))
   }
   
-  func addField(fieldName: String, fieldType: String, isMutable: Bool, description: String, defaultValue: String) throws -> Void {
+  func addField(fieldName: String, fieldType: String, isMutable: Bool, description: String, defaultValue: String, replacingField : SchemaField? = nil) throws -> Void {
+    if replacingField != nil {
+      try deleteField(fieldName: replacingField!.fieldName)
+    }
     let schemaField = SchemaField(fieldName: fieldName, fieldType: fieldType, isMutable: isMutable, description: description, defaultValue: defaultValue);
     try addField(field: schemaField);
   }
@@ -102,9 +105,6 @@ class SchemaData: NSObject {
       throw NSError(domain: String(format: "Schema Field (:%@) already exist", field.fieldName), code: ErrorCodeSchemaFieldAlreadyExist, userInfo: nil);
     }
     self.fieldMap[field.fieldName] = field;
-    try save();
-    
-    NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: YJEngineObserverSchemaChange)));
   }
   
   func deleteField(fieldName : String) throws -> Void {
@@ -113,8 +113,10 @@ class SchemaData: NSObject {
       throw NSError(domain: "You can't remove id field for key-value data", code: ErrorCodeSchemaDeleteFieldFailed, userInfo: nil);
     }
     self.fieldMap[fieldName] = nil;
+  }
+  
+  func update() throws -> Void {
     try save();
-    
     NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: YJEngineObserverSchemaChange)));
   }
   

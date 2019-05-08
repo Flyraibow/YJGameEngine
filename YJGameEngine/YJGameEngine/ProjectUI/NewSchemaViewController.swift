@@ -14,6 +14,19 @@ class NewSchemaViewController: NSViewController {
   @IBOutlet weak var _txtDescription: NSTextField!
   @IBOutlet weak var _selectSchemaType: NSPopUpButton!
   
+  weak var editSchema: SchemaData?
+  
+  override func viewDidAppear() {
+    super.viewDidAppear();
+    if self.editSchema != nil {
+      // It's editing not creating
+      _txtSchemaName.stringValue = self.editSchema!.name;
+      _txtDescription.stringValue = self.editSchema!.schemaDescription;
+      let type = self.editSchema!.type;
+      _selectSchemaType.selectItem(withTag: type.rawValue);
+    }
+  }
+  
   @IBAction func clickCancelButton(_ sender: Any) {
     self.dismiss(nil);
   }
@@ -28,9 +41,9 @@ class NewSchemaViewController: NSViewController {
     let description = _txtDescription.stringValue;
     
     do {
-      try ProjectManager.shared.addSchema(name: _txtSchemaName.stringValue, type: schemaType, description: description);
+      try ProjectManager.shared.addSchema(name: _txtSchemaName.stringValue, type: schemaType, description: description, replacingSchema: self.editSchema);
     } catch let error as NSError {
-      errorAlert(title: "Error", text: String(format: "Failed add schema: %@", error.localizedDescription));
+      errorAlert(title: "Error", text: String(format: "Failed to %@ schema: %@", self.editSchema != nil ? "edit" : "add", error.localizedDescription));
       return;
     }
     self.dismiss(nil);

@@ -166,6 +166,11 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
           menuItem.isHidden = false;
           return true;
         }
+      } else if menuItem.identifier?.rawValue == "editMenuItem" {
+        if (cell!.type == DefinedCategory.schema || cell!.type == DefinedCategory.schemaFieldDetail) {
+          menuItem.isHidden = false;
+          return true;
+        }
       }
     }
     menuItem.isHidden = true;
@@ -200,7 +205,8 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
         if (selectionAlert(title: "Warning", text: String(format: "Are you sure to delete this field : %@ from %@", cell!.name, schema!.name))) {
           // delete the field
           do {
-            try schema?.deleteField(fieldName: cell!.name);
+            try schema!.deleteField(fieldName: cell!.name);
+            try schema!.update()
           } catch let error as NSError {
             errorAlert(title: "Error", text: String(format: "Failed delete schema: %@", error.localizedDescription));
             return;
@@ -223,5 +229,17 @@ class LeftSideViewController: NSViewController, NSOutlineViewDataSource, NSOutli
   }
   @IBAction func clickAddSchemaButton(_ sender: Any) {
     WindowManager.openAddSchema();
+  }
+  
+  @IBAction func clickEdit(_ menuItem: NSMenuItem) {
+    let cell : Cell? = menuItem.representedObject as? Cell;
+    if cell?.type == DefinedCategory.schemaFieldDetail {
+      let schemaName = cell!.parentCell?.parentCell?.name;
+      let fieldName = cell!.name;
+      WindowManager.openAddField(schemaName: schemaName!, editingFieldName: fieldName);
+    } else if cell?.type == DefinedCategory.schema {
+      let schemaName = cell!.name;
+      WindowManager.openAddSchema(editSchemaName: schemaName);
+    }
   }
 }

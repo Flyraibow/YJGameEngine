@@ -71,10 +71,24 @@ class ProjectManager: NSObject {
     return String(format: "%@/%@/%@", _projectFolerPath!, SCHEMA, name);
   }
   
-  func addSchema(name: String, type: SchemaDataType, description: String) throws -> Void {
+  func addSchema(name: String, type: SchemaDataType, description: String, replacingSchema: SchemaData? = nil) throws -> Void {
     try verifyProject();
+    let fieldMaps = replacingSchema?.fieldMap;
+    if replacingSchema != nil {
+      _schemaMap.removeValue(forKey: replacingSchema!.name);
+      try replacingSchema!.deleteSchema();
+    }
+    
     let schema = try SchemaData(name: name, type: type, description: description);
     addSchema(schema: schema);
+    if fieldMaps != nil {
+      fieldMaps!.forEach({ (key, value) in
+        do {
+          try schema.addField(field: value)
+        } catch {}
+      })
+      try schema.update()
+    }
   }
   
   func addSchema(schema:SchemaData) -> Void {
@@ -84,7 +98,7 @@ class ProjectManager: NSObject {
   
   func deleteSchema(schemaName: String) throws -> Void {
     if _schemaMap[schemaName] != nil {
-      try _schemaMap[schemaName]!.delteSchema();
+      try _schemaMap[schemaName]!.deleteSchema();
       _schemaMap.removeValue(forKey: schemaName);
       NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: YJEngineObserverSchemaChange)));
     } else {

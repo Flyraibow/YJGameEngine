@@ -19,7 +19,7 @@ class WindowManager: NSObject {
     }
   }
   
-  static func openAddSchema() -> Void {
+  static func openAddSchema(editSchemaName : String? = nil) -> Void {
     do {
       try ProjectManager.shared.verifyProject();
     } catch let error as NSError {
@@ -29,12 +29,15 @@ class WindowManager: NSObject {
     let storyboard = NSStoryboard(name: "NewSchemaViewController", bundle: nil)
     let identifier = NSStoryboard.SceneIdentifier("NewSchemaViewController")
     let vc = storyboard.instantiateController(withIdentifier: identifier) as! NewSchemaViewController
+    if editSchemaName != nil {
+      vc.editSchema = ProjectManager.shared.getSchema(schemaName: editSchemaName!);
+    }
     if let window = NSApplication.shared.mainWindow {
       window.contentViewController?.presentAsModalWindow(vc)
     }
   }
   
-  static func openAddField(schemaName: String) -> Void {
+  static func openAddField(schemaName: String, editingFieldName : String? = nil) -> Void {
     do {
       try ProjectManager.shared.verifyProject();
     } catch let error as NSError {
@@ -50,6 +53,10 @@ class WindowManager: NSObject {
     let identifier = NSStoryboard.SceneIdentifier("NewFieldViewController")
     let vc = storyboard.instantiateController(withIdentifier: identifier) as! NewFieldViewController
     vc.schema = schema;
+    if editingFieldName != nil {
+      let field = schema!.fieldMap[editingFieldName!];
+      vc.editingField = field;
+    }
     if let window = NSApplication.shared.mainWindow {
       window.contentViewController?.presentAsModalWindow(vc)
     }

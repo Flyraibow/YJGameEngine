@@ -18,10 +18,18 @@ class NewFieldViewController: NSViewController {
   
   @IBOutlet weak var _labSchemaName: NSTextField!
   weak var schema: SchemaData?
+  weak var editingField : SchemaField?
   
   override func viewDidLoad() {
     super.viewDidLoad();
     _labSchemaName.stringValue = schema?.name ?? "";
+    if self.editingField != nil {
+      _txtFieldName.stringValue = self.editingField!.fieldName;
+      _txtDefaultValue.stringValue = self.editingField!.defaultValue;
+      _txtDescription.stringValue = self.editingField!.descriptionValue;
+      _checkBoxIsMutable.state = self.editingField!.isMutable ? NSControl.StateValue.on: NSControl.StateValue.off;
+      _popUpFieldType.selectItem(withTitle: self.editingField!.fieldType);
+    }
   }
   
   @IBAction func clickCancelButton(_ sender: Any) {
@@ -46,9 +54,11 @@ class NewFieldViewController: NSViewController {
                                 fieldType: fieldType!,
                                 isMutable: isMutable,
                                 description: description,
-                                defaultValue: defaulValue)
+                                defaultValue: defaulValue,
+                                replacingField: self.editingField);
+      try self.schema!.update()
     } catch let error as NSError {
-      errorAlert(title: "Error", text: String(format: "Failed add field: %@", error.localizedDescription));
+      errorAlert(title: "Error", text: String(format: "Failed %@ field: %@", self.editingField != nil ? "edit" : "add", error.localizedDescription));
       return;
     }
     self.dismiss(nil);
