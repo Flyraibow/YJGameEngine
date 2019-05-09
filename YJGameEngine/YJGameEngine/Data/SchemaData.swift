@@ -20,6 +20,7 @@ class SchemaData: NSObject {
   let type : SchemaDataType
   var schemaDescription: String
   var fieldMap = [String : SchemaField]()
+  var dataMap = [String : [String : Any]]();
   
   static func loadAllSchemas(schemaFolder : String) throws -> [SchemaData] {
     let fileURLs = try listFilesInFolder(folderPath: schemaFolder, ext: "json");
@@ -120,5 +121,19 @@ class SchemaData: NSObject {
     return Array(fieldMap.values).sorted { (schema1, schema2) -> Bool in
       return schema1.fieldName < schema2.fieldName;
     }
+  }
+  
+  func insertData(id : String, value : [String : Any]) -> Void {
+    self.dataMap[id] = value;
+  }
+  
+  func insertData(id : String, key : String, value : Any) -> Void {
+    var data : [String:Any] = self.dataMap[id] ?? [String:Any]();
+    data[key] = value
+    insertData(id: id, value: data);
+  }
+  
+  func deleteDataWithId(id : String) -> Void {
+    self.dataMap.removeValue(forKey: id);
   }
 }

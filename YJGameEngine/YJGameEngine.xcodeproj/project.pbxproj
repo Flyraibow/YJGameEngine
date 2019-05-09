@@ -26,6 +26,7 @@
 		EC9833B522828CE800EECA75 /* NewFieldViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */; };
 		EC9833B722828D4800EECA75 /* NewFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833B622828D4800EECA75 /* NewFieldViewController.swift */; };
 		EC9833BB2283591A00EECA75 /* CSVDecipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833BA2283591A00EECA75 /* CSVDecipher.swift */; };
+		EC9833BD2283E51C00EECA75 /* FieldTypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833BC2283E51C00EECA75 /* FieldTypeData.swift */; };
 		ECE086E522813B36004704FA /* SchemaField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE086E422813B36004704FA /* SchemaField.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewFieldViewController.storyboard; sourceTree = "<group>"; };
 		EC9833B622828D4800EECA75 /* NewFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFieldViewController.swift; sourceTree = "<group>"; };
 		EC9833BA2283591A00EECA75 /* CSVDecipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CSVDecipher.swift; path = Decipher/CSVDecipher.swift; sourceTree = "<group>"; };
+		EC9833BC2283E51C00EECA75 /* FieldTypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FieldTypeData.swift; path = Data/FieldTypeData.swift; sourceTree = "<group>"; };
 		ECE086E422813B36004704FA /* SchemaField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchemaField.swift; path = Data/SchemaField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 			children = (
 				EC42FD11227D1A4300AB72D9 /* SchemaData.swift */,
 				ECE086E422813B36004704FA /* SchemaField.swift */,
+				EC9833BC2283E51C00EECA75 /* FieldTypeData.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9833BD2283E51C00EECA75 /* FieldTypeData.swift in Sources */,
 				EC2985D1227A73FB007ECECD /* AlertManager.swift in Sources */,
 				EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */,
 				EC42FD08227C0CDE00AB72D9 /* MyEffor.swift in Sources */,
