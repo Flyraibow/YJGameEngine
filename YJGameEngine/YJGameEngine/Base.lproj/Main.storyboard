@@ -641,10 +641,16 @@
                                                 <action selector="clickAddSchema:" target="Voe-Tx-rLC" id="Kbg-ax-IPJ"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Import Schema" id="JCf-Bw-bxL" userLabel="Add Schema">
+                                        <menuItem title="Import Schema" id="JCf-Bw-bxL">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="clickImportSchema:" target="Voe-Tx-rLC" id="RT9-jD-cJl"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Add Type" id="XsF-f5-ZJ3">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="clickAddType:" target="Voe-Tx-rLC" id="WE8-SM-gWx"/>
                                             </connections>
                                         </menuItem>
                                     </items>

@@ -27,6 +27,8 @@
 		EC9833B722828D4800EECA75 /* NewFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833B622828D4800EECA75 /* NewFieldViewController.swift */; };
 		EC9833BB2283591A00EECA75 /* CSVDecipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833BA2283591A00EECA75 /* CSVDecipher.swift */; };
 		EC9833BD2283E51C00EECA75 /* FieldTypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833BC2283E51C00EECA75 /* FieldTypeData.swift */; };
+		EC9833BF2284C6F600EECA75 /* NewFieldTypeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9833BE2284C6F600EECA75 /* NewFieldTypeViewController.storyboard */; };
+		EC9833C12284C70D00EECA75 /* NewFieldTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9833C02284C70D00EECA75 /* NewFieldTypeViewController.swift */; };
 		ECE086E522813B36004704FA /* SchemaField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE086E422813B36004704FA /* SchemaField.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		EC9833B622828D4800EECA75 /* NewFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFieldViewController.swift; sourceTree = "<group>"; };
 		EC9833BA2283591A00EECA75 /* CSVDecipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CSVDecipher.swift; path = Decipher/CSVDecipher.swift; sourceTree = "<group>"; };
 		EC9833BC2283E51C00EECA75 /* FieldTypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FieldTypeData.swift; path = Data/FieldTypeData.swift; sourceTree = "<group>"; };
+		EC9833BE2284C6F600EECA75 /* NewFieldTypeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewFieldTypeViewController.storyboard; sourceTree = "<group>"; };
+		EC9833C02284C70D00EECA75 /* NewFieldTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFieldTypeViewController.swift; sourceTree = "<group>"; };
 		ECE086E422813B36004704FA /* SchemaField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchemaField.swift; path = Data/SchemaField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +173,8 @@
 				EC9833B222828C0700EECA75 /* WindowManager.swift */,
 				EC9833B422828CE800EECA75 /* NewFieldViewController.storyboard */,
 				EC9833B622828D4800EECA75 /* NewFieldViewController.swift */,
+				EC9833BE2284C6F600EECA75 /* NewFieldTypeViewController.storyboard */,
+				EC9833C02284C70D00EECA75 /* NewFieldTypeViewController.swift */,
 			);
 			path = ProjectUI;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 				EC298594227A1D0F007ECECD /* Assets.xcassets in Resources */,
 				EC298597227A1D0F007ECECD /* Main.storyboard in Resources */,
 				EC9833B522828CE800EECA75 /* NewFieldViewController.storyboard in Resources */,
+				EC9833BF2284C6F600EECA75 /* NewFieldTypeViewController.storyboard in Resources */,
 				EC2985C9227A6423007ECECD /* NewProjectWindow.storyboard in Resources */,
 				EC42FD16227E2C7500AB72D9 /* NewSchemaViewController.storyboard in Resources */,
 			);
@@ -340,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC9833BD2283E51C00EECA75 /* FieldTypeData.swift in Sources */,
+				EC9833C12284C70D00EECA75 /* NewFieldTypeViewController.swift in Sources */,
 				EC2985D1227A73FB007ECECD /* AlertManager.swift in Sources */,
 				EC2985D3227AAC66007ECECD /* ProjectManager.swift in Sources */,
 				EC42FD08227C0CDE00AB72D9 /* MyEffor.swift in Sources */,

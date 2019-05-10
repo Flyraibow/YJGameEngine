@@ -61,4 +61,19 @@ class WindowManager: NSObject {
       window.contentViewController?.presentAsModalWindow(vc)
     }
   }
+  
+  static func openAddType() -> Void {
+    do {
+      try ProjectManager.shared.verifyProject();
+    } catch let error as NSError {
+      errorAlert(title: "Error", text: error.localizedDescription);
+      return;
+    }
+    let storyboard = NSStoryboard(name: "NewFieldTypeViewController", bundle: nil)
+    let identifier = NSStoryboard.SceneIdentifier("NewFieldTypeViewController")
+    let vc = storyboard.instantiateController(withIdentifier: identifier) as! NewFieldTypeViewController
+    if let window = NSApplication.shared.mainWindow {
+      window.contentViewController?.presentAsModalWindow(vc)
+    }
+  }
 }

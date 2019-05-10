@@ -66,6 +66,11 @@ class ProjectManager: NSObject {
     NSLog("Complete Open Project: %@", (path as NSString).lastPathComponent);
   }
   
+  func getProjectPath() throws -> String {
+    try verifyProject();
+    return _projectFolerPath!;
+  }
+  
   func getSchemaPath(name : String) throws -> String {
     try verifyProject();
     return String(format: "%@/%@/%@", _projectFolerPath!, SCHEMA, name);
@@ -114,9 +119,5 @@ class ProjectManager: NSObject {
     return Array(_schemaMap.values).sorted { (schema1, schema2) -> Bool in
       return schema1.name < schema2.name;
     }
-  }
-  
-  func importSchemaFromCSV(path: URL) throws -> Void {
-    
   }
 }

@@ -70,5 +70,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       return;
     }
   }
+  @IBAction func clickAddType(_ sender: Any) {
+    WindowManager.openAddType();
+  }
 }
 

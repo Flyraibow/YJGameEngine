@@ -22,5 +22,7 @@ let ErrorCodeSchemaNotFound: Int = -101;
 let ErrorCodeSchemaFieldAlreadyExist: Int = -103;
 let ErrorCodeSchemaDeleteFieldFailed: Int = -104;
 
+let ErrorCodeDefineTypeFailed = -200;
+
 let ErrorWrongCSVPath : Int = -1000;
 let ErrorWrongCSVFields : Int = -1000;

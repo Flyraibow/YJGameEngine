@@ -13,9 +13,13 @@ func isValidFileName(name: String) throws -> Void {
     throw NSError(domain: "Empty Name", code: ErrorCodeInvalidFileName, userInfo: nil);
   }
   
+  if name[name.startIndex].isNumber {
+    throw NSError(domain: String(format: "Invalid File Name : %@", name), code: ErrorCodeInvalidFileName, userInfo: nil);
+  }
+  
   for chr in name {
-    if !chr.isLetter {
-      throw NSError(domain: String(format: "Invalid Character : %@", String(chr)), code: ErrorCodeInvalidFileName, userInfo: nil);
+    if !chr.isLetter && !chr.isNumber {
+      throw NSError(domain: String(format: "Invalid File Names : %@", name), code: ErrorCodeInvalidFileName, userInfo: nil);
     }
   }
 }
